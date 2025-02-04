@@ -98,12 +98,16 @@ type NumberAPIResponse struct {
 
 func GetFunFact(n int) (string, error) {
 	url := fmt.Sprintf("http://numbersapi.com/%d/math?json", n)
-	//resp, err := http.Get("http://numbersapi.com/" + strconv.Itoa(n) + "/math")
 	resp, err := http.Get(url)
 	if err != nil {
 		return "", err
 	}
-	defer resp.Body.Close()
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+			fmt.Println("failed to close response body")
+		}
+	}(resp.Body)
 	if resp.StatusCode != http.StatusOK {
 		return "", fmt.Errorf("failed to fetch fun fact: %d", resp.StatusCode)
 	}
