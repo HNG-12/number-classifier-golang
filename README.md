@@ -24,7 +24,7 @@ The API has only one endpoint which is a GET request to `/api/classify-number`. 
 
 Example request:
 ```bash
-curl -X GET http://localhost:8080/api/classify-number?number=666
+curl -X GET "http://localhost:8080/api/classify-number?number=666"
 ```
 
 Response (Success Response):
