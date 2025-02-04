@@ -9,30 +9,6 @@ import (
 	"strconv"
 )
 
-//func IsPrime(n int) bool {
-//	if n < 2 {
-//		return false
-//	}
-//	for i := 2; i < n; i++ {
-//		if n%i == 0 {
-//			return false
-//		}
-//	}
-//	return true
-//}
-
-//func IsPrime(n int) bool {
-//	if n < 2 {
-//		return false
-//	}
-//	for i := 2; i*i <= n; i++ {
-//		if n%i == 0 {
-//			return false
-//		}
-//	}
-//	return true
-//}
-
 func IsPrime(n int) bool {
 	if n <= 1 {
 		return false
@@ -46,21 +22,6 @@ func IsPrime(n int) bool {
 	return true
 }
 
-//	func IsPerfect(n int) bool {
-//		if n <= 1 {
-//			return false
-//		}
-//		sum := 1
-//		for i := 2; i*i <= n; i++ {
-//			if n%i == 0 {
-//				sum += i
-//				if i != n/i {
-//					sum += n / i
-//				}
-//			}
-//		}
-//		return sum == n
-//	}
 func IsPerfect(n int) bool {
 	sum := 0
 	for i := 1; i < n; i++ {
@@ -83,16 +44,6 @@ func IsArmstrong(n int) bool {
 	return sum == n
 }
 
-//	func DigitSum(n int) int {
-//		sum := 0
-//		for n > 0 {
-//			sum += n % 10
-//			n /= 10
-//		}
-//		return sum
-//	}
-//
-// digit sum of negative number
 func DigitSum(n int) int {
 	if n < 0 {
 		n = -n
